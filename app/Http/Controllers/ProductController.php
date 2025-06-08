@@ -19,7 +19,7 @@ class ProductController extends Controller
     public function create()
     {
         // Retornar la vista 'products.create' para crear un producto
-        return view('products.create', compact('product'));
+        return view('products.create');
     }
     // 
     public function store(Request $request)
@@ -34,6 +34,9 @@ class ProductController extends Controller
         Product::create($request->all());
         //Redirigir a la lista de productos con un mensaje de éxito
         return redirect()->route('products.index')->with('success', 'Producto creado exitosamente');
+        // Redirigir si hay un error
+        return redirect()->back()->with('error', 'Ocurrió un error al crear el producto');
+
     }
     // Llarmar info del producto para visualizar sus detalles
     public function show(Product $product)
