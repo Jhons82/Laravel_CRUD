@@ -26,8 +26,8 @@
                     <form action="{{ route('products.store') }}" method="POST" class="row g-3 needs-validation" enctype="multipart/form-data" novalidate>
                         @csrf
                         <!-- Name -->
-                        <div class="col-md-4">
-                            <label for="name" class="form-label">{{ __('Nombre') }}</label>
+                        <div class="col-md-6">
+                            <label for="name" class="form-label">{{ __('Nombre') }}<span class="text-danger"> *</span></label>
                             <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" placeholder="Nombre de Producto" required>
                             @error('name')
                                 <span class="invalid-feedback" role="alert">
@@ -36,9 +36,9 @@
                             @enderror
                         </div>
                         <!-- Price -->
-                        <div class="col-md-4">
-                            <label for="price" class="form-label">{{ __('Precio') }}</label>
-                            <input type="text" class="form-control @error('price') is-invalid @enderror" id="price" name="price" placeholder="Precio" required>
+                        <div class="col-md-6">
+                            <label for="price" class="form-label">{{ __('Precio') }}<span class="text-danger"> *</span></label>
+                            <input type="number" class="form-control @error('price') is-invalid @enderror" id="price" name="price" placeholder="Precio" required>
                             @error('price')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -46,9 +46,9 @@
                             @enderror
                         </div>
                         <!-- Description -->
-                        <div class="col-md-4">
-                            <label for="description" class="form-label">{{ __('Descripción') }}</label>
-                            <input type="text" class="form-control @error('description') is-invalid @enderror" id="description" name="description" required>
+                        <div class="col-md-12">
+                            <label for="description" class="form-label">{{ __('Descripción') }}<span class="text-danger"> *</span></label>
+                            <textarea class="form-control @error('description') is-invalid @enderror" id="description" name="description" required>{{ old('description') }}</textarea>
                             @error('description')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>

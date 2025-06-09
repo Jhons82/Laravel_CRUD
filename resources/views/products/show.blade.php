@@ -25,7 +25,7 @@
                 <div class="card-body">
                     <form action="{{ route('products.update', $product->id) }}" method="POST" class="row g-3 needs-validation" enctype="multipart/form-data" novalidate>
                         <!-- Name -->
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <label for="name" class="form-label">{{ __('Nombre') }}</label>
                             <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" placeholder="Nombre de Producto" value="{{ $product->name }}" required readonly>
                             @error('name')
@@ -35,7 +35,7 @@
                             @enderror
                         </div>
                         <!-- Price -->
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <label for="price" class="form-label">{{ __('Precio') }}</label>
                             <input type="text" class="form-control @error('price') is-invalid @enderror" id="price" name="price" placeholder="Precio" value="{{ $product->price }}" required readonly>
                             @error('price')
@@ -45,9 +45,9 @@
                             @enderror
                         </div>
                         <!-- Description -->
-                        <div class="col-md-4">
+                        <div class="col-md-12">
                             <label for="description" class="form-label">{{ __('Descripción') }}</label>
-                            <input type="text" class="form-control @error('description') is-invalid @enderror" id="description" name="description" value="{{ $product->description }}" required readonly>
+                            <textarea class="form-control @error('description') is-invalid @enderror" id="description" name="description" required readonly>{{ $product->description }}</textarea>
                             @error('description')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
